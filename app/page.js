@@ -1,100 +1,76 @@
-import Image from "next/image";
+"use client"
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter();
+  useEffect(()=>{
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  },[]);
+  return (
+    <div className="bg-gray-50">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-blue-800 to-blue-600 text-white text-center py-10 shadow-lg">
+        <h1 className="font-extrabold text-6xl md:text-7xl mb-6 leading-tight tracking-tight">Welcome to Mokerview</h1>
+        <h2 className="font-extrabold text-6xl md:text-4xl mb-6 leading-tight tracking-tigh">Mock It Till You Rock It!</h2>
+        <p className="italic text-xl md:text-2xl max-w-3xl mx-auto mb-7">Prepare confidently, ace your interviews, and land your dream job.</p>
+        <Button className="bg-white text-blue-800 px-6 py-3 rounded-full text-lg font-medium shadow-md hover:bg-blue-100 transition duration-300"
+        onClick={()=>router.replace('/dashboard')}>
+          Get Started
+        </Button>
+      </div>
+
+      {/* Why choose Mockerview Section */}
+      <section className="py-20 bg-white">
+        <h2 className="text-4xl font-bold text-[#2d3e50] mb-12 text-center">Why Choose Mokerview?</h2>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-8">
+          <div className="flex flex-col justify-center space-y-6 text-lg text-gray-700">
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">1</div>
+              <p><strong>Personalized Experience</strong> - Get mock interviews tailored to your job role and experience level, ensuring the practice is relevant to your goals.</p>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">2</div>
+              <p><strong>ConvenienceRealistic Interview Simulations</strong> - Practice with real-world questions that mirror actual interviews, so you’re always prepared.</p>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">3</div>
+              <p><strong>ConvenienceExpert Feedback</strong> - Receive actionable feedback from industry experts to fine-tune your answers and improve your performance.</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-center space-y-6 text-lg text-gray-700">
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">4</div>
+              <p><strong>Convenience & Flexibility</strong> - Prepare at your own pace, whenever and wherever suits you, with no scheduling hassles.</p>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">5</div>
+              <p><strong>ConvenienceTrack Your Progress</strong> - Monitor your improvement over time, keeping you motivated and on track to succeed.</p>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">6</div>
+              <p><strong>ConvenienceAffordable & Accessible</strong> - Enjoy high-quality preparation at an affordable price, making it accessible to everyone.</p>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Success Stories Section */}
+      <section className="bg-gray-100 py-20">
+        <h3 className="text-4xl font-semibold text-[#2d3e50] mb-8 text-center">Success Stories</h3>
+        <p className="text-lg text-gray-700 mx-auto max-w-3xl text-center">
+          Many of our users have successfully aced their interviews and landed their dream jobs after practicing with Mokerview. With tailored mock interviews and expert feedback, you too can improve your skills and confidently face any interview.
+        </p>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="bg-blue-800 text-white py-8">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-6">
+          <p className="text-lg">© 2025 Mokerview. All Rights Reserved.</p>
+          <a href="mailto:support@mokerview.com" className="text-lg hover:text-blue-200 transition duration-300">Contact Us</a>
+        </div>
       </footer>
     </div>
   );
