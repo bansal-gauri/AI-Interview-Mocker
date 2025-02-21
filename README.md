@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Overview
 
-## Getting Started
+AI Interview Mocker is a web application designed to help users prepare for job interviews by providing mock interview sessions. The application generates interview questions based on the user's job position, job description, and years of experience. Users can record their answers, receive feedback, and track their progress.
 
-First, run the development server:
+## Features
+- **User Authentication**: Secure user authentication using Clerk.
+- **Dashboard**: Users can view the previous mock interviews and start new ones.
+- **Mock Interviews**: Generate tailored interview questions and record answers.
+- **Feedback**: Receive detailed feedback on answers to improve performance.
+- **Upgrade Plans**: Option to upgrade to a monthly plan for additional features.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## API Endpoints
+### Dashboard
+- **URL:** `/`
+- **Method:** GET
+- **Description:** Retrieve a list of all previous interviews as well as an option to add a new interview.
 
-Open [http://localhost:3000/dashboard](http://localhost:3000/dashboard) with your browser to see the result.
+### Create Interview
+- **URL:** `/dashboard/interview`
+- **Method:** POST
+- **Description:** Start a new interview. This will create a new interview resource and return the interview ID.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Feedback
+- **URL:** `/dashboard/interview/{id}/feedback`
+- **Method:** GET
+- **Description:** Get feedback for a specific interview using the interview's unique ID.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Upgrade Plan Page
+- **URL:** `/upgrade`
+- **Method:** GET
+- **Description:** Retrieve available plans for upgrading to a higher tier.
 
-## Learn More
+### How it Works Page
+- **URL:** `/how_it_works`
+- **Method:** GET
+- **Description:** Provides information on how to use the platform.
 
-To learn more about Next.js, take a look at the following resources:
+## UI Structure
+The UI consists of the following main components:
+- **Get Started:** Information about the platform.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![screenshot](public/started.png)
+- **Dashboard:** Displays all the previous interviews taken.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![screenshot](public/dashboard.png)
+- **Create Interview:** A form to set up a new mock interview, where users can provide job position, job description, and experience level.
 
-## Deploy on Vercel
+![screenshot](public/add.png)
+- **Start Interview:** A page where users can begin answering questions in the mock interview.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![screenshot](public/start.png)
+- **Questions:** Displays the generated questions for the mock interview session.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![screenshot](public/question.png)
+- **Feedback:** Displays feedback after the interview is completed.
+
+![screenshot](public/feedback.png)
+- **How it works:** Provides a guide on how to use the platform effectively.
+
+![screenshot](public/upgrade.png)
+- **Upgrade Plan:** Displays available plans for upgrading to higher tiers with additional features.
+
+![screenshot](public/how_it_works.png)
+
+### Installation
+1. Clone the repository:
+     ```bash
+     git clone https://github.com/yourusername/AI-Interview_Mocker.git
+     ```
+2. Navigate to the project directory:
+     ```bash
+     cd AI-Interview_Mocker
+     ```
+3. Install dependencies:
+     ```bash
+     npm install
+     ```
+4. Start the development server:
+     ```bash
+     npm start
+     ```
